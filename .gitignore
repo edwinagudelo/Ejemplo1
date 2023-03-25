@@ -1,0 +1,10 @@
+# Directorios omitidos
+[Dd]ebug/
+[Rr]elease/
+ipch/
+.vs/
+
+# Archivos ignorados
+*.ncb
+*.user
+*.VC.db

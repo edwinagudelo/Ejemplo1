@@ -7,7 +7,7 @@ using namespace cv;
 
 int main() {
 	// Nombre de la imagen a cargar
-	/*char nombreImagen[] = "C:\\Users\\Edwin\\Documents\\Desarrollos\\CursoOpenCV\\Escritura_primer_programa\\ivvi.jpg";
+	char nombreImagen[] = "C:\\Users\\Edwin\\Documents\\Desarrollos\\CursoOpenCV\\Escritura_primer_programa\\ivvi.jpg";
 	Mat imagen;
 	//Mat dst;
 	//Mat imagenResultadoLut;
@@ -20,7 +20,7 @@ int main() {
 	}*/
 
 
-	/*for (i = imagen.rows / 4; i < 3 * imagen.rows / 4; ++i) {
+	for (i = imagen.rows / 4; i < 3 * imagen.rows / 4; ++i) {
 		for (j = imagen.cols / 4; j < 3 * imagen.cols / 4; ++j) {
 			imagen.at<Vec3b>(Point(i, j)) = Vec3b(0, 0, 0);
 		}
@@ -31,10 +31,10 @@ int main() {
 
 	// Guardo el resultado
 	imwrite("Resultado.jpg", imagen);
-	*/
+	
 
 	/// Separar la imagen a 3 subimagenes ( A, V y R )
-	/*vector<Mat> bgr_planes;
+	vector<Mat> bgr_planes;
 	split(imagen, bgr_planes);
 
 	//Variables para el histograma
@@ -88,9 +88,9 @@ int main() {
 	imshow("Original", imagen);
 	namedWindow("Histograma", CV_WINDOW_AUTOSIZE);
 	imshow("Histograma", histImage);
-	*/
+	
 	/// Ejercicio LUT
-	/*Mat lut(1, 256, CV_8U);
+	Mat lut(1, 256, CV_8U);
 
 	for (int i = 0; i < 256; i++) {
 		//lut.at<uchar>(i) = 255 - i; //Función Inversa
@@ -107,11 +107,11 @@ int main() {
 
 	//Esperar a pulsar una tecla
 	cvWaitKey(0);
-	return 0;*/
+	//return 0;*/
 
 	/// Ejercicio de espacio de color
 	//Separar la imagen a 3 subimagenes ( A, V y R )
-	/*vector<Mat> bgr_planes;
+	vector<Mat> bgr_planes;
 	split(imagen, bgr_planes);
 
 	cvtColor(imagen, hsvimagen, CV_BGR2HSV);
@@ -124,50 +124,50 @@ int main() {
 	imshow("Original", imagen);
 
 	namedWindow("HSV", CV_WINDOW_AUTOSIZE);
-	imshow("HSV", hsvimagen);*/
+	imshow("HSV", hsvimagen);
 
 
 	/// Ejercicio de operaciones
-	//char NombreImagen1[] = "C:\\Users\\Edwin\\Documents\\Desarrollos\\CursoOpenCV\\24 Operaciones matemáticas con las OpenCV\\LSI.jpg";
-	//char NombreImagen2[] = "C:\\Users\\Edwin\\Documents\\Desarrollos\\CursoOpenCV\\24 Operaciones matemáticas con las OpenCV\\UC3M.jpg";
-	//Mat img1, img2;
+	char NombreImagen1[] = "C:\\Users\\Edwin\\Documents\\Desarrollos\\CursoOpenCV\\24 Operaciones matemáticas con las OpenCV\\LSI.jpg";
+	char NombreImagen2[] = "C:\\Users\\Edwin\\Documents\\Desarrollos\\CursoOpenCV\\24 Operaciones matemáticas con las OpenCV\\UC3M.jpg";
+	Mat img1, img2;
 
 	
 	//Cargamos la imagen y se comprueba que lo ha hecho correctamente
-	//img1 = imread(NombreImagen1);
-	//img2 = imread(NombreImagen2);
+	img1 = imread(NombreImagen1);
+	img2 = imread(NombreImagen2);
 
-	/*if (!img1.data || !img2.data) {
+	if (!img1.data || !img2.data) {
 		cout << "Error al cargar las imagenes" << endl;
 		exit(1);
 	}
 	imshow("Image1", img1);
 	imshow("Image2", img2);
 
-	Mat dst;*/
+	Mat dst;
 
-	//add(img1, img2, dst, noArray(), -1);
-	//imshow("ADD", dst);
-	//subtract(img1, img2, dst, noArray(), -1);
-	//imshow("SUBTRACT", dst);
-	//multiply(img1, img2, dst, (1.0), -1);
-	//imshow("MULTIPLY", dst);
-	//divide(img1, img2, dst, (1.0), -1);
-	//imshow("DIVIDE", dst);
+	add(img1, img2, dst, noArray(), -1);
+	imshow("ADD", dst);
+	subtract(img1, img2, dst, noArray(), -1);
+	imshow("SUBTRACT", dst);
+	multiply(img1, img2, dst, (1.0), -1);
+	imshow("MULTIPLY", dst);
+	divide(img1, img2, dst, (1.0), -1);
+	imshow("DIVIDE", dst);
 
-	//Mat res;
+	Mat res;
 
-	//bitwise_and(img1, img2, res);
-	//imshow("AND", res);
-	//bitwise_or(img1, img2, res);
-	//imshow("OR", res);
-	//bitwise_not(img1, res);
-	//imshow("NOT", res);
-	/*bitwise_xor(img1, img2, res);
-	imshow("XOR", res);*/
+	bitwise_and(img1, img2, res);
+	imshow("AND", res);
+	bitwise_or(img1, img2, res);
+	imshow("OR", res);
+	bitwise_not(img1, res);
+	imshow("NOT", res);
+	bitwise_xor(img1, img2, res);
+	imshow("XOR", res);
 
 	/// Ejercicio de convolucion
-	/*char NombreImagen[] = "C:\\Users\\Edwin\\Documents\\Desarrollos\\CursoOpenCV\\29 Ejemplo de Conv. de imágenes digitales con las OpenCV\\IMG.jpg";
+	char NombreImagen[] = "C:\\Users\\Edwin\\Documents\\Desarrollos\\CursoOpenCV\\29 Ejemplo de Conv. de imágenes digitales con las OpenCV\\IMG.jpg";
 	Mat src, dst;
 
 	src = imread(NombreImagen);
@@ -187,7 +187,7 @@ int main() {
 	imshow("dst", dst);*/
 	
 	/// Ejercicio de correlación
-	/*char NombreImagen[] = "C:\\Users\\Edwin\\Documents\\Desarrollos\\CursoOpenCV\\32 Correlación de imágenes digitales con las OpenCV\\corr_norm.tif";
+	char NombreImagen[] = "C:\\Users\\Edwin\\Documents\\Desarrollos\\CursoOpenCV\\32 Correlación de imágenes digitales con las OpenCV\\corr_norm.tif";
 	char Patron[] = "C:\\Users\\Edwin\\Documents\\Desarrollos\\CursoOpenCV\\32 Correlación de imágenes digitales con las OpenCV\\modelo.tif";
 
 	Mat src;
@@ -242,11 +242,11 @@ int main() {
 	imshow("CCOEFF", ftmp[4]);
 
 	namedWindow("CCOEFF_NORMED", CV_WINDOW_AUTOSIZE);
-	imshow("CCOEFF_NORMED", ftmp[5]);*/
+	imshow("CCOEFF_NORMED", ftmp[5]);
 
 	/// Ejercicio 2 de Correlacion
 	//Nombre de la imagen que se va a cargar
-	/*char NombreImagen[] = "C:\\Users\\Edwin\\Documents\\Desarrollos\\CursoOpenCV\\33 Ejemplo de Correlación de imágenes digitales con las OpenCV\\IMG.jpg";
+	char NombreImagen[] = "C:\\Users\\Edwin\\Documents\\Desarrollos\\CursoOpenCV\\33 Ejemplo de Correlación de imágenes digitales con las OpenCV\\IMG.jpg";
 	char NombreModelo[] = "C:\\Users\\Edwin\\Documents\\Desarrollos\\CursoOpenCV\\33 Ejemplo de Correlación de imágenes digitales con las OpenCV\\MJ.jpg";
 
 	//Cargamos las imagenes y se comprueba que lo ha hecho correctamente
@@ -278,7 +278,7 @@ int main() {
 
 	minMaxLoc(dst, &minVal, &maxMal, &minLoc, &maxLoc, Mat());
 
-	//cout << "Min:" << minVal << "Max: " << maxMal << endl;
+	cout << "Min:" << minVal << "Max: " << maxMal << endl;
 
 	if (match_method == CV_TM_SQDIFF || match_method == CV_TM_SQDIFF_NORMED)
 	{
@@ -294,10 +294,10 @@ int main() {
 
 	imshow("src", src);
 	imshow("Result", dst);
-	imshow("templ", templ);*/
+	imshow("templ", templ);
 
 	/// Ejercicio trasnformaciones geometrica
-	/*char NombreImagen[] = "C:\\Users\\Edwin\\Documents\\Desarrollos\\CursoOpenCV\\37 Ejemplo de Transformaciones geometricas con las OpenCV\\IVVI.jpg";
+	char NombreImagen[] = "C:\\Users\\Edwin\\Documents\\Desarrollos\\CursoOpenCV\\37 Ejemplo de Transformaciones geometricas con las OpenCV\\IVVI.jpg";
 	Mat src, dst;
 
 	//Cargamos la imagen y se comprueba que lo ha hecho correctamente
